@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "luansantos",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -89.8,
+      "left": 153.6,
+      "attrs": { "color": "green", "label": "Vaga 1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -86.4,
+      "left": 230.4,
+      "attrs": { "color": "blue", "label": "Vaga 2" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": -8.6,
+      "left": 153.6,
+      "attrs": { "color": "red", "label": "Vaga 3" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": -8.6,
+      "left": 230.4,
+      "attrs": { "color": "yellow", "label": "Vaga 4" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_wifi",
+      "top": 150,
+      "left": 100,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_mqtt",
+      "top": 150,
+      "left": 130,
+      "attrs": { "color": "cyan" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn1:1.l", "esp:GND", "black", [ "v0" ] ],
+    [ "btn1:2.l", "esp:D13", "green", [ "v0" ] ],
+    [ "btn2:1.l", "esp:GND", "black", [ "v0" ] ],
+    [ "btn2:2.l", "esp:D12", "blue", [ "v0" ] ],
+    [ "btn3:1.l", "esp:GND", "black", [ "v0" ] ],
+    [ "btn3:2.l", "esp:D14", "red", [ "v0" ] ],
+    [ "btn4:1.l", "esp:GND", "black", [ "v0" ] ],
+    [ "btn4:2.l", "esp:D27", "orange", [ "v0" ] ],
+    [ "led_wifi:A", "esp:D2", "blue", [ "v0" ] ],
+    [ "led_wifi:C", "esp:GND", "black", [ "v0" ] ],
+    [ "led_mqtt:A", "esp:D4", "cyan", [ "v0" ] ],
+    [ "led_mqtt:C", "esp:GND", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

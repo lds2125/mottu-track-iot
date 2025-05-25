@@ -1,0 +1,318 @@
+[
+    {
+        "id": "e81d76378e9f565b",
+        "type": "mqtt in",
+        "z": "cd6722f61dca859a",
+        "name": "Status Vagas Pátio A",
+        "topic": "mottu/filial_simulada/patio_A/#",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "c3ec0b01c107026e",
+        "nl": false,
+        "rap": true,
+        "inputs": 0,
+        "x": 500,
+        "y": 500,
+        "wires": [
+            [
+                "c0b1e427edb9bf22"
+            ]
+        ]
+    },
+    {
+        "id": "c0b1e427edb9bf22",
+        "type": "switch",
+        "z": "cd6722f61dca859a",
+        "name": "Direciona por Vaga",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "mottu/filial_simulada/patio_A/vaga_1/status",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mottu/filial_simulada/patio_A/vaga_2/status",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mottu/filial_simulada/patio_A/vaga_3/status",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mottu/filial_simulada/patio_A/vaga_4/status",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 730,
+        "y": 500,
+        "wires": [
+            [
+                "f9b7b9016e3794b6"
+            ],
+            [
+                "e2c1e74f07a23c3a"
+            ],
+            [
+                "77b2829283f5080e"
+            ],
+            [
+                "1dfec3297a7a505b"
+            ]
+        ]
+    },
+    {
+        "id": "f9b7b9016e3794b6",
+        "type": "change",
+        "z": "cd6722f61dca859a",
+        "name": "Vaga 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 440,
+        "wires": [
+            [
+                "b15e4c6c06a86c67"
+            ]
+        ]
+    },
+    {
+        "id": "e2c1e74f07a23c3a",
+        "type": "change",
+        "z": "cd6722f61dca859a",
+        "name": "Vaga 2 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 500,
+        "wires": [
+            [
+                "a179c3d4704b2b64"
+            ]
+        ]
+    },
+    {
+        "id": "77b2829283f5080e",
+        "type": "change",
+        "z": "cd6722f61dca859a",
+        "name": "Vaga 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 560,
+        "wires": [
+            [
+                "d84379e49635c91b"
+            ]
+        ]
+    },
+    {
+        "id": "1dfec3297a7a505b",
+        "type": "change",
+        "z": "cd6722f61dca859a",
+        "name": "Vaga 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 620,
+        "wires": [
+            [
+                "0ac66f54fc534a65"
+            ]
+        ]
+    },
+    {
+        "id": "b15e4c6c06a86c67",
+        "type": "ui_template",
+        "z": "cd6722f61dca859a",
+        "group": "252277f985062c3e",
+        "name": "Vaga 1",
+        "order": 1,
+        "width": 3,
+        "height": 2,
+        "format": "<style>\n    .vaga-box {\n        padding: 5px;\n        margin: 5px;\n        border-radius: 5px;\n        text-align: center;\n        font-weight: bold;\n        color: white; /* Texto branco */\n        display: flex; /* Para centralizar verticalmente */\n        align-items: center;\n        justify-content: center;\n        height: 100%; /* Ocupa a altura total do template */\n        font-size: 1.2em;\n    }\n    .vaga-livre {\n        background-color: green;\n    }\n    .vaga-ocupada {\n        background-color: red;\n    }\n</style>\n\n<div class=\"vaga-box\" ng-class=\"{'vaga-ocupada': msg.payload === 'OCUPADA', 'vaga-livre': msg.payload === 'LIVRE'}\">\n  Vaga 1\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "x": 1130,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a179c3d4704b2b64",
+        "type": "ui_template",
+        "z": "cd6722f61dca859a",
+        "group": "252277f985062c3e",
+        "name": "Vaga 2",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "format": "<style>\n    .vaga-box {\n        padding: 5px;\n        margin: 5px;\n        border-radius: 5px;\n        text-align: center;\n        font-weight: bold;\n        color: white; /* Texto branco */\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100%;\n        font-size: 1.2em;\n    }\n    .vaga-livre {\n        background-color: green;\n    }\n    .vaga-ocupada {\n        background-color: red;\n    }\n</style>\n\n<div class=\"vaga-box\" ng-class=\"{'vaga-ocupada': msg.payload === 'OCUPADA', 'vaga-livre': msg.payload === 'LIVRE'}\">\n  Vaga 2\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "x": 1130,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d84379e49635c91b",
+        "type": "ui_template",
+        "z": "cd6722f61dca859a",
+        "group": "252277f985062c3e",
+        "name": "Vaga 3",
+        "order": 3,
+        "width": 3,
+        "height": 2,
+        "format": "<style>\n    .vaga-box {\n        padding: 5px;\n        margin: 5px;\n        border-radius: 5px;\n        text-align: center;\n        font-weight: bold;\n        color: white; /* Texto branco */\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100%;\n        font-size: 1.2em;\n    }\n    .vaga-livre {\n        background-color: green;\n    }\n    .vaga-ocupada {\n        background-color: red;\n    }\n</style>\n\n<div class=\"vaga-box\" ng-class=\"{'vaga-ocupada': msg.payload === 'OCUPADA', 'vaga-livre': msg.payload === 'LIVRE'}\">\n  Vaga 3\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "x": 1130,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ac66f54fc534a65",
+        "type": "ui_template",
+        "z": "cd6722f61dca859a",
+        "group": "252277f985062c3e",
+        "name": "Vaga 4",
+        "order": 4,
+        "width": 3,
+        "height": 2,
+        "format": "<style>\n    .vaga-box {\n        padding: 5px;\n        margin: 5px;\n        border-radius: 5px;\n        text-align: center;\n        font-weight: bold;\n        color: white; /* Texto branco */\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100%;\n        font-size: 1.2em;\n    }\n    .vaga-livre {\n        background-color: green;\n    }\n    .vaga-ocupada {\n        background-color: red;\n    }\n</style>\n\n<div class=\"vaga-box\" ng-class=\"{'vaga-ocupada': msg.payload === 'OCUPADA', 'vaga-livre': msg.payload === 'LIVRE'}\">\n  Vaga 4\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "x": 1130,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3ec0b01c107026e",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Public Broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthQos": "0",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "userProps": ""
+    },
+    {
+        "id": "252277f985062c3e",
+        "type": "ui_group",
+        "name": "Pátio A - Vagas",
+        "tab": "c6204c405a39626e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c6204c405a39626e",
+        "type": "ui_tab",
+        "name": "Pátio Mottu (Simulado)",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
